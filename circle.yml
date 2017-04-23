@@ -21,6 +21,11 @@ dependencies:
       else
         echo "The correct version of Yarn is already installed."
       fi
+    - |
+      if [[ $CIRCLE_BRANCH != "syn4-master" ]]; then
+        export SYNCANO5_RELEASE_DATE=$((32503680000 * 1000))
+      fi
+
   override:
     - yarn install
   cache_directories:
